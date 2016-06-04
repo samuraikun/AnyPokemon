@@ -24,7 +24,7 @@ module AnyPokemon
     end
 
     def attack(move)
-      return @move if @move.include?(move)
+      @move if @move.include?(move)
     end
   end
 
@@ -55,6 +55,18 @@ Types = [
   STEEL = 'steel'
 ]
 
+def battle_start(enemy_type:, name:, **enemy)
+  p "#{enemy_type}の#{name}が現れた。"
+  action = ['たたかう', 'にげる', 'どうぐ', 'ポケモン']
+
+  p 'アクションを決めてください。'
+  action.each do |i|
+    print i + ' '
+  end
+
+end
+
 hitokage = AnyPokemon::Pokemon.new('♂', 'electric', ['でんこうせっか', '電気ショック', 'しっぽをふる', '10万ボルト'], 'Cool', 17, 57)
 p hitokage.attack('10万ボルト')
 
+battle_start(enemy_type: '闇エンジニア', name: 'キム')
